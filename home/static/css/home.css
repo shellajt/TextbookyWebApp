@@ -1,0 +1,19 @@
+.page-header {
+	font-family: 'Kaushan Script';
+	margin-top:0px;
+	overflow-y: hidden;
+	background-color: #0099CC;
+}
+
+.page-header h1 {
+    color: #ffffff;
+    font-size: 32pt;
+}
+
+.pword-box{
+	padding-left: 120px;
+}
+
+.login-buttons {
+	padding-left: 30px;
+}

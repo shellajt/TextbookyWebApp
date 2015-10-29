@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>TextBooky - New Listing</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href={% static "css/newlisting.css" %}>
+    </head>
+	
+	<body>
+		<div class="page-header">
+			<h1>Textbooky - New Listing</h1>
+		</div>
+		
+		<div class="form">
+			{% block content %}
+				<h1>New Listing</h1>
+				<form method="POST" class="post-form">{% csrf_token %}
+					{{ form.as_p }}
+					<button type="submit" class="save btn btn-default">Save</button>
+				</form>
+			{% endblock %}
+		</div>
+		
+		<p id="location"> </p>
+		
+		<div class="location">
+			<button onclick="getLocation()">Locate</button>
+		</div>
+		
+		<script>
+			var x = document.getElementById("location");
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+			function showPosition(position) {
+				x.innerHTML = "Latitude: " + position.coords.latitude + 
+				"<br>Longitude: " + position.coords.longitude;	
+			}
+		</script>
+	</body>
+</html>
+	

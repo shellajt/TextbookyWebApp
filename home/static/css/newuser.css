@@ -1,0 +1,16 @@
+.page-header {
+	font-family: 'Kaushan Script';
+	background-color: #0099CC;
+	margin-top:0px;
+	overflow-y: hidden;
+	padding: 20px 20px 20px 15px;
+}
+
+.page-header h1{
+    color: #ffffff;
+    font-size: 46pt;
+}
+
+.form {
+	padding-left: 15px;
+}

@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>TextBooky Listings</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href={% static "css/listings.css" %}>
+    </head>
+	
+    <body>
+		<div class="page-header">
+			<h1>Textbooky Listings</h1>
+		</div>
+		
+		<div class="button">
+			<button type="button" onclick="window.location='http://127.0.0.1:8000/listings/newlisting'">Add a New Listing!</button>
+		</div>
+
+		{% for listing in listings %}
+			<div class="listing">
+				<h2><a href="">{{ listing.title }}</a></h2>
+				<p>ISBN: {{ listing.isbn }} <br>
+				Author: {{ listing.author }} <br>
+				Edition: {{ listing.edition }} <br>
+				Location: {{ listing.location }} <br>
+				Price: ${{ listing.price }} </p>
+				
+				<p>Expiration Date: {{ listing.expirationdate }}</p>
+			</div>
+		{% endfor %}
+    </body>
+</html>

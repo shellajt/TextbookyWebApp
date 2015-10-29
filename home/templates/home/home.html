@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>TextBooky!</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href={% static "css/home.css" %}>
+		
+    </head>
+	
+    <body>
+		<center>
+			<div class="page-header">
+				<h1>Textbooky</h1>
+			</div>
+			
+			<div>
+				<h4>Textbooky is a user-driven marketplace for students to buy, sell, and textbooks. Textbooky is unique in that it shows<br/> 
+				book listings based off of the location of the user. This location-based service will specifically help users find convenient<br/> 
+				deals in their area, which will make it easier to pick up and eliminate wasting money on shipping & handling costs. Textbooky<br/> 
+				will be offered as a web application as well as an iOS mobile app. Log in below! <br/>
+				</h4>
+			</div>
+			
+			<div>
+			<p> <b>Username:</b> <input type="text" name="username"><br>
+				<div class="pword-box">
+					<b>Password:</b> <input type="password" name="password"> <a href="http://127.0.0.1:8000/listings">Forgot Password?</a><br> </p>
+				</div>
+			</div>
+			
+			<div class="login-buttons">
+			<button type="button" onclick="window.location='http://127.0.0.1:8000/listings'">Log In</button>
+			<button type="button" onclick="window.location='http://127.0.0.1:8000/home/newuser'">Register</button>
+			</div>
+			
+		</center>
+    </body>
+</html>
