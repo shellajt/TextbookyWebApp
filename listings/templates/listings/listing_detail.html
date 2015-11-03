@@ -1,33 +1,30 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>TextBooky Listings</title>
+        <title>TextBooky Listing Details</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href={% static "css/listings.css" %}>
+		<link rel="stylesheet" href={% static "css/listing_detail.css" %}>
     </head>
 	
     <body>
 		<div class="page-header">
-			<h1>Textbooky Listings</h1>
-		</div>
-		
-		<div class="button">
-			<button type="button" onclick="window.location='http://127.0.0.1:8000/listings/newlisting'">Add a New Listing!</button>
+			<h1>Textbooky - Listing Details</h1>
 		</div>
 
-		{% for listing in listings %}
+		{% block content %}
 			<div class="listing">
-				<h2><a href='{% url "listing_detail" pk=listing.pk %}'>{{ listing.title }}</a></h2>
+				<h2>{{ listing.title }}</h2>
 				<p>ISBN: {{ listing.isbn }} <br>
 				Author: {{ listing.author }} <br>
 				Edition: {{ listing.edition }} <br>
 				Location: {{ listing.location }} <br>
-				Price: ${{ listing.price }} </p>
-				
-				<p>Expiration Date: {{ listing.expirationdate }}</p>
+				Price: ${{ listing.price }} <br>
+				Condition: {{ listing.condition }} <br>
+				Seller Comments: {{ listing.comments }} </p>
+				Expiration Date: {{ listing.expirationdate }}
 			</div>
-		{% endfor %}
-    </body>
+		{% endblock %}
+	</body>
 </html>

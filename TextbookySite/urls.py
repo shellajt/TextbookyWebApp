@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^listings/', include('listings.urls')),
 	url(r'^home/', include('home.urls')),
+	url(r'^listing/(?P<pk>[0-9]+)/$', views.listing_detail, name='listing_detail'),
 ]
