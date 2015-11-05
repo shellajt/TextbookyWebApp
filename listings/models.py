@@ -19,38 +19,29 @@ class Listingphotos(models.Model):
     class Meta:
         managed = False
         db_table = 'listingphotos'
-		
-    def __str__(self):
-        return self.listingphotoid
 
 
 class Listings(models.Model):
     listingid = models.AutoField(primary_key=True)
     userid = models.ForeignKey('Users', db_column='userid', blank=True, null=True)
-    price = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    isbn = models.CharField(max_length=17, blank=True, null=True)
+    title = models.CharField(max_length=255, blank=True, null=True)
+    edition = models.CharField(max_length=255, blank=True, null=True)
+    author = models.CharField(max_length=255, blank=True, null=True)
+    price = models.DecimalField(max_digits=65535, decimal_places=2, blank=True, null=True)
     condition = models.IntegerField(blank=True, null=True)
     comments = models.CharField(max_length=500, blank=True, null=True)
     negotiable = models.NullBooleanField()
     postdate = models.DateField(blank=True, null=True)
     expirationdate = models.DateField(blank=True, null=True)
-    isbn = models.CharField(max_length=17, blank=True, null=True)
-    title = models.CharField(max_length=255, blank=True, null=True)
-    edition = models.CharField(max_length=255, blank=True, null=True)
-    author = models.CharField(max_length=255, blank=True, null=True)
     longitute = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
     latitude = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'listings'
+
 		
-    def publish(self):
-	    self.save()
-
-    def __str__(self):
-        return self.listingid
-
-
 class Reviews(models.Model):
     reviewid = models.AutoField(primary_key=True)
     userid = models.ForeignKey('Users', db_column='userid', blank=True, null=True)
@@ -60,12 +51,6 @@ class Reviews(models.Model):
     class Meta:
         managed = False
         db_table = 'reviews'
-		
-    def publish(self):
-        self.save()
-
-    def __str__(self):
-        return self.reviewid
 
 
 class Users(models.Model):
@@ -82,6 +67,3 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
-
-    def __str__(self):
-        return self.userid

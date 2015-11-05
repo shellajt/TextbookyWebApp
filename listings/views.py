@@ -3,6 +3,7 @@ from .models import Listings
 from .forms import ListingsForm
 from django.shortcuts import redirect
 from django.utils import timezone
+import datetime
 
 # Create your views here.
 def listing_list(request):
@@ -13,6 +14,8 @@ def newlisting(request):
     if request.method == "POST":
         form = ListingsForm(request.POST)
         if form.is_valid():
+            form = form.save(commit=False)
+            form.postdate = timezone.now()
             form.save()
             return redirect('/listings/')
     else:

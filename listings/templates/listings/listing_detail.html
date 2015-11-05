@@ -12,7 +12,7 @@
 		<div class="page-header">
 			<h1>Textbooky - Listing Details</h1>
 		</div>
-
+		
 		{% block content %}
 			<div class="listing">
 				<h2>{{ listing.title }}</h2>
@@ -21,8 +21,23 @@
 				Edition: {{ listing.edition }} <br>
 				Location: {{ listing.location }} <br>
 				Price: ${{ listing.price }} <br>
-				Condition: {{ listing.condition }} <br>
+				
+				{% if listing.condition == 0 %}
+                    Condition: Poor<br>
+                {% elif listing.condition == 1 %}
+                    Condition: Fair<br>
+				{% elif listing.condition == 2 %}
+					Condition: Good<br>
+				{% elif listing.condition == 3 %}
+					Condition: Very Good<br>
+				{% elif listing.condition == 4 %}
+					Condition: New<br>
+                {% else %}
+                    Condition: None<br>
+                {% endif %}
+				
 				Seller Comments: {{ listing.comments }} </p>
+				Posted On: {{ listing.postdate }} <br>
 				Expiration Date: {{ listing.expirationdate }}
 			</div>
 		{% endblock %}

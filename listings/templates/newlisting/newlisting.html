@@ -9,16 +9,16 @@
     </head>
 	
 	<body>
-		<div class="page-header">
+	    <div class="page-header">
 			<h1>Textbooky - New Listing</h1>
-		</div>
+        </div>
 		
 		<div class="form">
 			{% block content %}
 				<h1>New Listing</h1>
 				<form method="POST" class="post-form">{% csrf_token %}
 					{{ form.as_p }}
-					<button type="submit" class="save btn btn-default">Save</button>
+					<button type="submit" class="save btn btn-default">Submit</button>
 				</form>
 			{% endblock %}
 		</div>

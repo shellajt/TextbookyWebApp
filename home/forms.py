@@ -6,3 +6,6 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = ('username', 'password', 'phonenum', 'firstname', 'lastname')
+        widgets = {
+            'password' : forms.PasswordInput(),
+        }
