@@ -19,8 +19,6 @@
 	</head>
 
 	<body class = "background">
-
-
 		<div style ="margin-bottom: 5%;">
 			<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
 				<a class="pure-menu-heading" href="" style="font-family:'Fredoka One'">Textbooky</a
@@ -33,17 +31,14 @@
 		</div>
 		
 		{% for listing in listings %}
-		<a href="{% url "listing_detail" pk=listing.pk %}" style = "display: block"><div class="square">
-						
-						 
-						<p style = "font-size: 200%">{{ listing.title }}</p>
-						<p> ISBN: {{ listing.isbn }}<br>
-						Author: {{ listing.author }}<br>
-						Edition: {{ listing.edition }}<br>
-						Location: ({{ listing.latitude }}, {{ listing.longitude}})<br>
-						Price: ${{ listing.price }}</p>
-						
-		</div></a>
+			<a href="{% url "listing_detail" pk=listing.pk %}" style = "display: block"><div class="square">
+				<p style = "font-size: 200%">{{ listing.title }}</p>
+				<p> ISBN: {{ listing.isbn }}<br>
+				Author: {{ listing.author }}<br>
+				Edition: {{ listing.edition }}<br>
+				Location: ({{ listing.latitude }}, {{ listing.longitude}})<br>
+				Price: ${{ listing.price }}</p>		
+			</div></a>
 		{% endfor %}
 		
     </body>
