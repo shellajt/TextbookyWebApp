@@ -5,4 +5,4 @@ class ListingsForm(forms.ModelForm):
 
     class Meta:
         model = Listings
-        fields = ('title', 'price', 'condition', 'comments', 'title', 'isbn', 'edition', 'author', 'expirationdate')
+        fields = ('title', 'price', 'condition', 'comments', 'title', 'isbn', 'edition', 'author', 'latitude', 'longitude', 'expirationdate',)

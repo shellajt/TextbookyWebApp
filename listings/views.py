@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Listings
+from .models import Listings, Users
 from .forms import ListingsForm
 from django.shortcuts import redirect
 from django.utils import timezone
-import datetime
+from decimal import Decimal
 
 # Create your views here.
 def listing_list(request):
@@ -16,8 +16,18 @@ def newlisting(request):
         if form.is_valid():
             form = form.save(commit=False)
             form.postdate = timezone.now()
+            form.userid = Users.objects.get(pk=2)
+            form.negotiable = True
             form.save()
             return redirect('/listings/')
     else:
         form = ListingsForm()
     return render(request, 'newlisting/newlisting.html', {'form':form})		
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
