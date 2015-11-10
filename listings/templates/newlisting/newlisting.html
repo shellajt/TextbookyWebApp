@@ -52,8 +52,8 @@
 			}
 		}
 		function showPosition(position) {
-			x.innerHTML = "Latitude: " + position.coords.latitude + 
-			"<br>Longitude: " + position.coords.longitude;	
+			x.innerHTML = "Latitude: " + (Math.floor(position.coords.latitude * 100000000) / 100000000) + 
+			"<br>Longitude: " + (Math.floor(position.coords.longitude * 100000000) / 100000000);	
 		}
 		</script>
 	</body>
