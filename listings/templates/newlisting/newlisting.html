@@ -42,20 +42,22 @@
 	<p id="location"> </p>
 	<button onclick="getLocation()">Locate</button>
 	
-	<script>
-		var x = document.getElementById("location");
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} else { 
-				x.innerHTML = "Geolocation is not supported by this browser.";
+	<div class="button">
+		<script>
+			var x = document.getElementById("location");
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
 			}
-		}
-		function showPosition(position) {
-			x.innerHTML = "Latitude: " + (Math.floor(position.coords.latitude * 100000000) / 100000000) + 
-			"<br>Longitude: " + (Math.floor(position.coords.longitude * 100000000) / 100000000);	
-		}
+			function showPosition(position) {
+				x.innerHTML = "Latitude: " + (Math.floor(position.coords.latitude * 100000000) / 100000000) + 
+				"<br>Longitude: " + (Math.floor(position.coords.longitude * 100000000) / 100000000);	
+			}
 		</script>
+	</div>
 	</body>
 </html>
 	

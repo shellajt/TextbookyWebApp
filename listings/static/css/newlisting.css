@@ -11,11 +11,15 @@
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
+ 
 body {
     line-height: 1.7em;
-    color: #7f8c8d;
+    color: #000;
     font-size: 13px;
+	padding-left: 15px;
 }
+
+
 
 h1,
 h2,
@@ -24,7 +28,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color: #fff;
 }
 
 .pure-img-responsive {
@@ -143,12 +147,10 @@ a.pure-button-primary {
 }
 
 .form {
-	padding-left: 15px;
-	color: #fff;
+	color: #000;
 }
 
 .background
 {
     background-color: #1f8dd6;
-	
 }
