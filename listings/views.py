@@ -11,20 +11,18 @@ from django.db import connection
 # Create your views here.
 def listing_list(request):
 	
-        #g = geocoder.ip('me')
-        #lat= g.latlng[0]
-        #lng = g.latlng[1]
+    g = geocoder.ip('me')
+    lat= g.latlng[0]
+    lng = g.latlng[1]
 		
-		#c = connection.cursor()
-		#   try:
-		#        c.callproc("FN_NAME", (ARGS))
-		#        results = c.fetchall()
-		#   finally:
-		#        c.close()
-		#pass results in below
-        		
-		listings = Listings.objects.order_by('expirationdate')
-        return render(request, 'listings/listing_list.html', {'listings': listings})
+    c = connection.cursor()
+    try:
+        results = Listings.objects.raw('SELECT * FROM getCloseListings(%s, %s)', [lat, lng])
+        #results = c.fetchall()
+        print(results)
+    finally:
+        c.close()
+    return render(request, 'listings/listing_list.html', {'listings': results})
 		
 def newlisting(request):
     if request.method == "POST":
@@ -40,10 +38,6 @@ def newlisting(request):
         form = ListingsForm()
     return render(request, 'newlisting/newlisting.html', {'form':form})		
 
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+def completelistings(request):
+    listings = Listings.objects.order_by('expirationdate')
+    return render(request, 'listings/completelistings.html', {'listings': listings})
