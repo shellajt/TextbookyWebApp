@@ -1,39 +1,72 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>TextBooky New User</title>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href={% static "css/newuser.css" %}>
-    </head>
-	
-    <body>
-		<div class="page-header">
-			<h1>Textbooky</h1>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A layout example that shows off a responsive product landing page.">
+
+		<title> Textbooky </title>
+
+		<link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href={% static "css/newuser.css" %}>
+	</head>
+
+	<body class = "background">
+		<div style ="margin-bottom: 5%;">
+			<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+				<a class="pure-menu-heading" href="" style="font-family:'Fredoka One'">Textbooky</a
+				<ul class="pure-menu-list">
+					<li class="pure-menu-item" style="font-family: 'Roboto', sans-serif; text-transform: uppercase"><a href="http://127.0.0.1:8000/" class="pure-menu-link">Home</a></li>
+					<li class="pure-menu-item" style="font-family: 'Roboto', sans-serif; text-transform: uppercase"><a href="http://127.0.0.1:8000/listings" class="pure-menu-link">Login</a></li>
+					<li class="pure-menu-item" style="font-family: 'Roboto', sans-serif; text-transform: uppercase"><a href="http://127.0.0.1:8000/listings/newlisting" class="pure-menu-link">New Listing</a></li>
+				</ul>
+			</div>
 		</div>
 		
 		<div class="form">
 			{% block content %}
 				<form method="POST" class="post-form">{% csrf_token %}
-				<font size="4">Username: </font><br>
+				<font size="4" color="white">Username: </font><br>
 				{{ form.username }}<br>
 				
-				<font size="4">Password: </font><br>
+				<font size="4" color="white">Password: </font><br>
 				{{ form.password }}<br>
 				
-				<font size="4">First Name: </font><br>
+				<font size="4" color="white">First Name: </font><br>
 				{{ form.firstname }}<br>
 				
-				<font size="4">Last Name: </font><br>
+				<font size="4" color="white">Last Name: </font><br>
 				{{ form.lastname }} <br>
 				
-				<font size="4">Phone Number: </font><br>
+				<font size="4" color="white">Phone Number: </font><br>
 				{{ form.phonenum }} <br>
 				<button type="submit" class="save btn btn-default" style="color:black">Submit</button>
 				</form>
 			{% endblock %}
 		</div>
-		
-	</body>
+	<body>
 </html>
+            
+            
+            
+            
+            
+            
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
