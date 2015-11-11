@@ -32,7 +32,7 @@
 	<div class="form">
 		{% block content %}
 			<h1>New Listing</h1>
-				<h3 style="font-size:125%">Use this form to post a new listing! All fields are required. Condition must be a number from zero (poor) to four (new or like new). </h3>
+				<h3 style="font-size:125%" color="white">Use this form to post a new listing! All fields are required. Condition must be a number from zero (poor) to four (new or like new). </h3>
 			<form method="POST" class="post-form">{% csrf_token %}
 				<font color="white" size="4">Title: </font><br>
 				{{ form.title }}<br>
