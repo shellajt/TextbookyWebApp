@@ -4,10 +4,26 @@ from .forms import ListingsForm
 from django.shortcuts import redirect
 from django.utils import timezone
 from decimal import Decimal
+import geocoder
+from django.db import connection
+
 
 # Create your views here.
 def listing_list(request):
-        listings = Listings.objects.order_by('expirationdate')
+	
+        #g = geocoder.ip('me')
+        #lat= g.latlng[0]
+        #lng = g.latlng[1]
+		
+		#c = connection.cursor()
+		#   try:
+		#        c.callproc("FN_NAME", (ARGS))
+		#        results = c.fetchall()
+		#   finally:
+		#        c.close()
+		#pass results in below
+        		
+		listings = Listings.objects.order_by('expirationdate')
         return render(request, 'listings/listing_list.html', {'listings': listings})
 		
 def newlisting(request):
