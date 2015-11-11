@@ -16,7 +16,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 
-<body class = "background">
+<body class = "background" onload="getLocation()">
 
 	<div style ="margin-bottom: 5%;">
 		<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
@@ -32,15 +32,44 @@
 	<div class="form">
 		{% block content %}
 			<h1>New Listing</h1>
+				<h3 style="font-size:125%">Use this form to post a new listing! All fields are required. Condition must be a number from zero (poor) to four (new or like new). </h3>
 			<form method="POST" class="post-form">{% csrf_token %}
-				{{ form.as_p }}
+				<font color="white" size="4">Title: </font><br>
+				{{ form.title }}<br>
+				
+				<font color="white" size="4">ISBN: </font><br>
+				{{ form.isbn }}<br>
+				
+				<font color="white" size="4">Edition: </font><br>
+				{{ form.edition }}<br>
+				
+				<font color="white" size="4">Author: </font><br>
+				{{ form.author }} <br>
+				
+				<font color="white" size="4">Price: </font><br>
+				{{ form.price }} <br>
+				
+				<font color="white" size="4">Condition (number 0-4):</font><br>
+				{{ form.condition }} <br>
+				
+				<font color="white" size="4">Comments: </font><br> 
+				{{ form.comments }} <br>
+				
+				<br>
+				<font color="white" size="4">Latitude: </font><br>
+				{{ form.latitude }}<br>
+				<font color="white" size="4">Longitude: </font><br>
+				{{ form.longitude }} <br>
+				
+				<br>
+				<font color="white" size="4">Expiration Date (MM/DD/YYYY):</font><br>
+				{{ form.expirationdate }}<br>
 				<button type="submit" class="save btn btn-default" style="color:black">Save</button>
 			</form>
 		{% endblock %}
 	</div>
 		
 	<p id="location"> </p>
-	<button onclick="getLocation()">Locate</button>
 	
 	<div class="button">
 		<script>
@@ -53,8 +82,8 @@
 				}
 			}
 			function showPosition(position) {
-				x.innerHTML = "Latitude: " + (Math.floor(position.coords.latitude * 100000000) / 100000000) + 
-				"<br>Longitude: " + (Math.floor(position.coords.longitude * 100000000) / 100000000);	
+				document.getElementById('id_longitude').value = (Math.floor(position.coords.longitude * 100000000) / 100000000);	
+				document.getElementById('id_latitude').value = (Math.floor(position.coords.latitude * 100000000) / 100000000);	
 			}
 		</script>
 	</div>
